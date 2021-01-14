@@ -27,6 +27,11 @@ body { background: #0f0f0f; }
 /* ------------------------------------------------------------------ */
 /* b. Header Styles
 /* ------------------------------------------------------------------ */
+.fotodepoimento {
+   border-radius: 100%;
+   width: 100px;
+   height: 100px;
+}
 
 header {
    position: relative;
