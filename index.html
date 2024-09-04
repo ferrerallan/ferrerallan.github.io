@@ -23,6 +23,9 @@
             'details-devops': '<p>I worked as a university professor at UNIMAR, where I taught classes, recorded tutorials, and wrote a book for the Cloud Computing & DevOps course. I covered topics such as AWS, Terraform, Kubernetes, Scrum, CI/CD, Agile, and cloud computing, providing students with a solid and applied foundation.<br/><br/>Cloud Computing, DevOps, and Agile methodologies</p>',
             'details-nodejs': '<p>I served as a university professor at UNIVEM, teaching in the postgraduate course on Node.js. The course covered everything from the fundamentals of the language to building a complete backend application using RabbitMQ, Express, and MongoDB.<br/><br/>Node.js, RabbitMQ, Express, MongoDB</p>',
             'details-fatec': '<p>I worked as a university professor at FATEC, teaching classes on Cloud Computing and Advanced Programming Techniques. I taught students the most modern and efficient practices for developing and deploying systems in the cloud.<br/><br/>Cloud Computing, Advanced Programming Techniques</p>',
+            'details-fhirflow': '<p>FHIR Flow is my master\'s thesis project where I created and implemented an application for health data interoperability using the FHIR protocol with machine learning and Large Language models. The model has a flow that implements lexical, syntactic, and semantic layers to identify adequate FHIR models and results, recognizing data from free text or structured data.<br/><br/>Technologies used were Python, FHIR, SNOMED-CT ontology, and fine-tuning techniques with OpenAI models and the spaCy library.</p>',
+            'details-sofarming': '<p>SOFARMING utilizes large language models to analyze video files and identify entities at specific timeframes. This enriched metadata is used to generate new, fragmented video files automatically based on user preferences and identified objects.<br/><br/>Technologies used were Python, Large Language Models (LLM), and React.js.</p>',
+            'details-semanticsearch': '<p>Semantic Search employs large language models to craft storylines for titles. These storylines are then vectorized using TensorFlow and stored in Elasticsearch. The frontend application, built with React.js, features voice recognition. User requests trigger ultra-low latency consultations with Elasticsearch, returning closely matched results.<br/><br/>Technologies used were Large Language Models (LLM), TensorFlow, Elasticsearch, and React.js.</p>',       
 
         };
 
@@ -148,6 +151,9 @@
                     <img src="images/portfolio/helpchains.jpg" alt="Smart Soccer">
                     <p>Helpchains.com: Blockchain DApp</p>
                 </div>
+                <div class="project" onclick="openModal('details-semanticsearch')">
+                    <img src="images/portfolio/semanticsearch.jpeg" alt="Semantic Search">  <p>Semantic Search: Voice-Activated Search on Elasticsearch</p>
+                </div>
                 <div class="project" onclick="openModal('details-devops')">
                     <img src="images/portfolio/devops.jpeg" alt="Devops">
                     <p>University Professor: Devops & Cloud Computing</p>
@@ -156,9 +162,19 @@
                     <img src="images/portfolio/soft.png" alt="SOFT">
                     <p>SOFT: Financial Transactions</p>
                 </div>
+                <div class="projects">
+                    <div class="project" onclick="openModal('details-fhirflow')">
+                        <img src="images/portfolio/fhirflow.jpeg" alt="FHIR Flow">  <p>FHIR Flow: Health Data Interoperability</p>
+                    </div>
+                </div>
                 <div class="project" onclick="openModal('details-fatec')">
                     <img src="images/portfolio/fatec.png" alt="Devops">
                     <p>University Professor: Advanced Programming Techniques</p>
+                </div>
+                <div class="projects">
+                    <div class="project" onclick="openModal('details-sofarming')">
+                        <img src="images/portfolio/sofarming.jpeg" alt="SOFARMING">  <p>SOFARMING: Computational Vision</p>
+                    </div>
                 </div>
                 <div class="project" onclick="openModal('details-nestle')">
                     <img src="images/portfolio/nestle.png" alt="Nestlé - Brokers 3.0">
