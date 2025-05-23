@@ -53,49 +53,42 @@
 </head>
 <body class="dark-theme">
     <header class="header">
-        <nav class="nav" >
-            <ul style="background-color: #000; padding: 10px 20px; border-radius: 8px;">
-                <li><a href="#about" style="color: aquamarine;">About Me</a></li>
-                <li><a href="#resume" style="color: aquamarine;">Resume</a></li>
-                <li><a href="#portfolio" style="color: aquamarine;">Projects</a></li>
-                <li><a href="#testimonials" style="color: aquamarine;">Testimonials</a></li>                
-              </ul>
-              
+        <nav class="nav">
+            <ul>                
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>                
+            </ul>
         </nav>
         <div class="banner">
-            <h1 style="color: aquamarine;">Allan Ferreira</h1>
-            <h3><strong>Full Stack | AI Engineer. Certified AWS Architect. Certified Azure AI Engineer. MSc in Info Science. Blockchain. Instructor.</strong></h3>            
+            <h1>Allan Ferreira</h1>
+            <h3>Full Stack | AI Engineer. Certified AWS Architect. Certified Azure AI Engineer. MSc in Info Science. Blockchain. Instructor.</h3>
+            <ul class="social">
+                <li><a href="https://www.linkedin.com/in/allan--ferreira/" target="_blank">LinkedIn</a></li>
+            </ul>
         </div>
     </header>
     
     <main>
-        <section id="about" class="about">            
-            <div class="about-container">
-              <img src="images/allan-photo-2024.png" alt="Allan Ferreira" class="profile-pic">
-              
-              <div class="about-text">                
+        <section id="about" class="about">
+            
+            <div>
+                <img src="images/allan-photo-2024.png" alt="Allan Ferreira" class="profile-pic">
+                <h2>About Me</h2>
                 <p>With 19 years of experience in software development, I am passionate about what I do. Always focused on learning and teaching, I am committed to continuous improvement, both individually and within teams, as well as the products I work on.</p>
-                
-                <p style="font-size: 14px;">
-                    <img src="icons/zap.png" alt="WhatsApp" style="height: 20px; vertical-align: middle;">
-                    <a href="https://wa.me/5514981359266" target="_blank">+55(14)98135-9266</a>
-                    &nbsp; | 
-                    <img src="icons/linkedin.webp" alt="LinkedIn" style="height: 20px; vertical-align: middle;">
-                    <a href="https://www.linkedin.com/in/allan--ferreira/" target="_blank">linkedIn</a>
-                    &nbsp; | 
-                    <img src="icons/email.webp" alt="Email" style="height: 20px; vertical-align: middle;">
-                    <a href="mailto:ferrerallan@gmail.com">ferrerallan@gmail.com</a>
-                    &nbsp; | 
-                    <img src="icons/youtube.png" alt="YouTube" style="height: 20px; vertical-align: middle;">
-                    <a href="https://www.youtube.com/@ferrerallan" target="_blank">channel</a>
-                  </p>
-              </div>
+                <div class="contact-details">
+                    <h2>Contact</h2>
+                    <p>Allan Ferreira<br>
+                    +55(14)98135-9266<br>
+                    ferrerallan@gmail.com</p>
+                    <a href="images/allan-ferreira-cv.pdf" class="btn">Download CV</a>
+                </div>
             </div>
-          </section>
-          
+        </section>
 
         <section id="resume" class="resume">
-            <h2 style="color: aquamarine;">Academic Education</h2>
+            <h2>Academic Education</h2>
             <ul>
                 <li>
                     <h3>UNESP</h3>
@@ -119,7 +112,7 @@
                 </li>
             </ul>
 
-            <h2 style="color: aquamarine;">Certifications</h2>
+            <h2>Certifications</h2>
             <div class="certifications-grid">
                 <div class="cert-card">
                     <img src="icons/aws-architect.webp" alt="AWS SAA" class="cert-icon">
@@ -161,13 +154,15 @@
                     <h3>Certified Docker Foundations</h3>
                     <p>Containerization with Docker basics.</p>
                 </div>
-            </div>           
+            </div>
+
+            
 
 
         </section>
 
         <section id="portfolio" class="portfolio">
-            <h2 style="color: aquamarine;">Important Projects</h2>
+            <h2>Important Projects</h2>
             <div class="projects">
                 <div class="project" onclick="openModal('details-agentx')">
                     <img src="images/portfolio/agentx.png" alt="Agent X">
@@ -254,19 +249,19 @@
         </section>
 
         <section id="testimonials" class="testimonials">
-            <h2 style="color: aquamarine;">Testimonials from professionals</h2>
+            <h2>Testimonials from professionals</h2>
             <ul>
                 <li>
                     <img src="images/beto.jpeg" alt="Beto Lima" class="testimonial-pic">
-                    <p >"Born leader! Even when I led him I saw in a great leader. With assertive and quality, positive attitudes, punctual games to relax tense situations, but without losing focus and, somewhat admirably, he knows how to actively listen. I'm sure I learned from him as much as I taught and way beyond the source code" – Beto Lima: Consultant SAP ABAP/HANA/Fiori-UI5 in Tecno LLAB</p>
+                    <p>"Born leader! Even when I led him I saw in a great leader. With assertive and quality, positive attitudes, punctual games to relax tense situations, but without losing focus and, somewhat admirably, he knows how to actively listen. I'm sure I learned from him as much as I taught and way beyond the source code" – Beto Lima: Consultant SAP ABAP/HANA/Fiori-UI5 in Tecno LLAB</p>
                 </li>
                 <li>
                     <img src="images/regis.jpeg" alt="Reinaldo Porte Peres" class="testimonial-pic">
-                    <p >"A professional example of leadership. Has the ability to make the team always work in the best and most effective way. It has a rare differential to stand out so much technically as in business!" – Reinaldo Porte Peres: Fullstack developer in HCFAMEMA</p>
+                    <p>"A professional example of leadership. Has the ability to make the team always work in the best and most effective way. It has a rare differential to stand out so much technically as in business!" – Reinaldo Porte Peres: Fullstack developer in HCFAMEMA</p>
                 </li>
                 <li>
                     <img src="images/wagner.jpeg" alt="Wagner Jeferson Binoto" class="testimonial-pic">
-                    <p >"I worked with Allan for over 3 years and what stands out about him is the spirit investigative to discover new things to improve what is being done. His enthusiasm for discovering new technologies, new methods is contagious because he has a internal motivator that overflows outward inspiring those around you. An exemplary and inspiring professional" – Wagner Jeferson Binoto: Lead Consultant Project Service LATAM - ADP do Brazil</p>
+                    <p>"I worked with Allan for over 3 years and what stands out about him is the spirit investigative to discover new things to improve what is being done. His enthusiasm for discovering new technologies, new methods is contagious because he has a internal motivator that overflows outward inspiring those around you. An exemplary and inspiring professional" – Wagner Jeferson Binoto: Lead Consultant Project Service LATAM - ADP do Brazil</p>
                 </li>
             </ul>
         </section>
