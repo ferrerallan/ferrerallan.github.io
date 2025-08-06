@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="favicon.png">
     <script>
         const detailsContent = {
+            'details-sofya': '<p>Sofya.AI is a startup focused on healthcare interoperability solutions. I worked as an AI Engineer developing a model for automatic pathology recognition and terminology cataloging, including SNOMED-CT, using the FHIR protocol. The solution combined large language models (LLMs) and machine learning techniques to interpret both structured and unstructured clinical data, enabling semantic integration across healthcare systems.<br/><br/>Technologies used were Python, LLM, FHIR, SNOMED-CT, spaCy, and machine learning.</p>',
             'details-helpchains': '<p>HelpChains.com is a blockchain application designed to raise funds securely and transparently through smart contracts built in Solidity and deployed on the BNB Chain. I worked on this project as an architect and developer, ensuring proper integration and functionality of the platform.<br/><br/>Technologies used were Solidity, BNB Chain, Hardhat, and React.</p>',
             'details-soft': '<p>With customers as Netflix, Amazon Prime and Google TV, i led the technical development of SOFT, an innovative solution aimed at automation and financial transparency in the streaming sector. My role involved integrating complex data on performance, taxes, and fees, providing clear dashboards for rights holders. I made a significant contribution to implementing advanced algorithms for normalization and title identification, ensuring interoperability and enriching our central database.<br/><br/>Technologies used were AWS, python, django, mongoDB, mysql, AWS SQS, AWS ECS and AWS Lambda</p>',
             'details-nestle': '<p>Nestlé, the world\'s largest food company, has restructured its entire communication architecture with its brokers and legacy software, redefining the entire B2B2C business model. I worked on this project as Software Engineer building APIs on Azure Cloud environment.<br/><br/>Technologies used were Azure environment, .NET Core, Postgree</p>',
@@ -169,54 +170,69 @@
         <section id="portfolio" class="portfolio">
             <h2 style="color: aquamarine;">Important Projects</h2>
             <div class="projects">
-                <div class="project" onclick="openModal('details-agentx')">
-                    <img src="images/portfolio/agentx.png" alt="Agent X">
-                    <p>Agent X: AI Agent for Movie Curation via Social Trends</p>
+                <div class="project" onclick="openModal('details-nestle')">
+                    <img src="images/portfolio/nestle.png" alt="Nestlé - Brokers 3.0">
+                    <p>Nestlé - Brokers 3.0</p>
                 </div>
                 <div class="project" onclick="openModal('details-helpchains')">
                     <img src="images/portfolio/helpchains.jpg" alt="Smart Soccer">
                     <p>Helpchains.com: Blockchain DApp</p>
-                </div>
-                <div class="project" onclick="openModal('details-semanticsearch')">
-                    <img src="images/portfolio/semanticsearch.jpeg" alt="Semantic Search">  <p>Semantic Search: Voice-Activated Search on Elasticsearch</p>
-                </div>
-                <div class="project" onclick="openModal('details-devops')">
-                    <img src="images/portfolio/devops.jpeg" alt="Devops">
-                    <p>University Professor: Devops & Cloud Computing</p>
-                </div>
-                <div class="project" onclick="openModal('details-soft')">
-                    <img src="images/portfolio/soft.png" alt="SOFT">
-                    <p>SOFT: Financial Transactions</p>
                 </div>
                 <div class="projects">
                     <div class="project" onclick="openModal('details-fhirflow')">
                         <img src="images/portfolio/fhirflow.jpeg" alt="FHIR Flow">  <p>FHIR Flow: Health Data Interoperability</p>
                     </div>
                 </div>
-                <div class="project" onclick="openModal('details-fatec')">
-                    <img src="images/portfolio/fatec.png" alt="Devops">
-                    <p>University Professor: Advanced Programming Techniques</p>
-                </div>
-                <div class="projects">
-                    <div class="project" onclick="openModal('details-sofarming')">
-                        <img src="images/portfolio/sofarming.jpeg" alt="SOFARMING">  <p>SOFARMING: Computational Vision</p>
-                    </div>
-                </div>
-                <div class="project" onclick="openModal('details-nestle')">
-                    <img src="images/portfolio/nestle.png" alt="Nestlé - Brokers 3.0">
-                    <p>Nestlé - Brokers 3.0</p>
-                </div>
-                <div class="project" onclick="openModal('details-nodejs')">
-                    <img src="images/portfolio/node.png" alt="Devops">
-                    <p>University Professor: Nodejs</p>
+                <div class="project" onclick="openModal('details-sofya')">
+                    <img src="images/portfolio/sofya_health_logo.jpeg" alt="Semantic Search">  
+                    <p>Sofya.ai - AI Engineer</p>
                 </div>
                 <div class="project" onclick="openModal('details-telemedicine')">
                     <img src="images/portfolio/telemedicina.png" alt="HCFAMEMA Telemedicine">
                     <p>HCFAMEMA Telemedicine</p>
                 </div>
+                <div class="project" onclick="openModal('details-soft')">
+                    <img src="images/portfolio/soft.png" alt="SOFT">
+                    <p>SOFT: Financial Transactions</p>
+                </div>
+                <div class="project" onclick="openModal('details-semanticsearch')">
+                    <img src="images/portfolio/semanticsearch.jpeg" alt="Semantic Search">  
+                    <p>Semantic Search: Voice-Activated Search on Elasticsearch</p>
+                </div>
+                <div class="project" onclick="openModal('details-devops')">
+                    <img src="images/portfolio/devops.jpeg" alt="Devops">
+                    <p>University Professor: Devops & Cloud Computing</p>
+                </div>
+                <div class="project" onclick="openModal('details-fatec')">
+                    <img src="images/portfolio/fatec.png" alt="Devops">
+                    <p>University Professor: Advanced Programming Techniques</p>
+                </div>
+                <div class="project" onclick="openModal('details-nodejs')">
+                    <img src="images/portfolio/node.png" alt="Devops">
+                    <p>University Professor: Nodejs</p>
+                </div>
+                <div class="project" onclick="openModal('details-smartsoccer')">
+                    <img src="images/portfolio/smartsoccer.jpeg" alt="Smart Soccer">
+                    <p>Smart Soccer - AI</p>
+                </div>
+                
+                <div class="project" onclick="openModal('details-iot')">
+                    <img src="images/portfolio/arduino.jpg" alt="Iot">
+                    <p>Temperature Monitoring with IOT</p>
+                </div>
+                <div class="project" onclick="openModal('details-agentx')">
+                    <img src="images/portfolio/agentx.png" alt="Agent X">
+                    <p>Agent X: AI Agent for Movie Curation via Social Trends</p>
+                </div>
+                
+                
+                
+                
+                
+                
                 <div class="project" onclick="openModal('details-representanet')">
                     <img src="images/portfolio/representanet.png" alt="Representanet.com.br">
-                    <p>Representanet.com.br</p>
+                    <p>Representanet</p>
                 </div>
                 <div class="project" onclick="openModal('details-trivs')">
                     <img src="images/portfolio/logo-trivs.png" alt="TRIVS">
@@ -234,14 +250,8 @@
                     <img src="images/portfolio/marcon.jpg" alt="HC ta na mão">
                     <p>Engineer Consulting</p>
                 </div>
-                <div class="project" onclick="openModal('details-iot')">
-                    <img src="images/portfolio/arduino.jpg" alt="Iot">
-                    <p>Temperature Monitoring with IOT</p>
-                </div>
-                <div class="project" onclick="openModal('details-smartsoccer')">
-                    <img src="images/portfolio/smartsoccer.jpeg" alt="Smart Soccer">
-                    <p>Smart Soccer - AI</p>
-                </div>
+                
+                
                 
             </div>
 
@@ -273,7 +283,7 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 Allan Ferreira | <a href="https://www.linkedin.com/in/allan--ferreira/" target="_blank">LinkedIn</a> </p>
+        <p>&copy; 2025 Allan Ferreira | <a href="https://www.linkedin.com/in/allan--ferreira/" target="_blank">LinkedIn</a> </p>
     </footer>
     <script>
         function toggleDetails(id) {
