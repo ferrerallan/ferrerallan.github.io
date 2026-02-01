@@ -1,308 +1,388 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allan Ferreira - Software Engineer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="favicon.png">
-    <script>
-        const detailsContent = {
-            'details-sofya': '<p>Sofya.AI is a startup focused on healthcare interoperability solutions. I worked as an AI Engineer developing a model for automatic pathology recognition and terminology cataloging, including SNOMED-CT, using the FHIR protocol. The solution combined large language models (LLMs) and machine learning techniques to interpret both structured and unstructured clinical data, enabling semantic integration across healthcare systems.<br/><br/>Technologies used were Python, LLM, FHIR, SNOMED-CT, spaCy, and machine learning.</p>',
-            'details-helpchains': '<p>HelpChains.com is a blockchain application designed to raise funds securely and transparently through smart contracts built in Solidity and deployed on the BNB Chain. I worked on this project as an architect and developer, ensuring proper integration and functionality of the platform.<br/><br/>Technologies used were Solidity, BNB Chain, Hardhat, and React.</p>',
-            'details-soft': '<p>With customers as Netflix, Amazon Prime and Google TV, i led the technical development of SOFT, an innovative solution aimed at automation and financial transparency in the streaming sector. My role involved integrating complex data on performance, taxes, and fees, providing clear dashboards for rights holders. I made a significant contribution to implementing advanced algorithms for normalization and title identification, ensuring interoperability and enriching our central database.<br/><br/>Technologies used were AWS, python, django, mongoDB, mysql, AWS SQS, AWS ECS and AWS Lambda</p>',
-            'details-nestle': '<p>Nestlé, the world\'s largest food company, has restructured its entire communication architecture with its brokers and legacy software, redefining the entire B2B2C business model. I worked on this project as Software Engineer building APIs on Azure Cloud environment.<br/><br/>Technologies used were Azure environment, .NET Core, Postgree</p>',
-            'details-telemedicine': '<p>HCFAMEMA Telemedicine is the telemedicine platform of the Hospital das Clínicas de Marília that enabled patients to continue receiving care amid the 2020 pandemic. I worked on this project as a systems architect, scrum master, tech lead, and developer.<br/><br/>Technologies used were .NET, python, nodejs, C#, restful APIs, ReactJS, Oracle, Postgre, Jitsi</p>',
-            'details-representanet': '<p>www.representanet.com.br is a complete system for managing sales representatives. I worked on this project as a developer and systems architect.<br/><br/>Technologies used were Asp.net, Mysql, and C#. The mobile version was developed with JAVA and AndroidStudio.<br/><br/>WEB Development and Android</p>',
-            'details-trivs': '<p>TRIVS is a white-label software for various areas that includes the management of service and payment scheduling. The platform includes subscriber software, customer software, and a mobile app for both iPhone and Android. I worked on this project as a developer, architect, and sysadmin.<br/><br/>Technologies used were Python, React, React Native, Expo, Mysql, Docker, and advanced shell scripts for automatic creation of separate instances.<br/><br/>React, Python, and Shell scripts</p>',
-            'details-acessibilidade': '<p>Acessibilidade Marília is an application where the population of Marília can view and add accessibility reference points, with images, photos, and descriptions, to facilitate access for people who need adapted and prepared places. The app is available for web, Android, and iPhone. I worked on this project as a creator and developer.<br/><br/>Technologies used were ReactJs, React Native, Mysql, NodeJs, and Typescript.<br/><br/>Fullstack Developer</p>',
-            'details-tanamão': '<p>The HCFAMEMA Tá Na Mão application was created to communicate with patients in the Assistance Network of HCFAMEMA, which takes care of more than 1.2 million lives in Marília and the region. I worked on this project as Scrum Master, development lead, systems architect, and developer.<br/><br/>Technologies used were Xamarin, asp.net, Oracle, Postgre, MongoDB, Node.js, and Python.<br/><br/>Tech-lead, Scrum Master</p>',
-            'details-consulting': '<p>I worked in this job as a consultant and trainer of MVC architecture for the development team at Marcon industry in Marília/SP.<br/><br/>Design Patterns Consultant</p>',
-            'details-iot': '<p>Warehouse temperature control solution. I worked on this project as a circuit designer and fullstack developer.<br/><br/>Technologies used were Arduino, Objective C, and asp.net.<br/><br/>Fullstack Developer</p>',
-            'details-smartsoccer': '<p>I worked on this project as an information architect and machine learning developer. The project aimed to perform predictions of sports matches by collecting data from various official competition datasets.<br/><br/>Technologies used were Python, Pandas, Google Colab, Sklearn, Matplotlib, and Seaborn.<br/><br/>Machine Learning, Python</p>',
-            'details-devops': '<p>I worked as a university professor at UNIMAR, where I taught classes, recorded tutorials, and wrote a book for the Cloud Computing & DevOps course. I covered topics such as AWS, Terraform, Kubernetes, Scrum, CI/CD, Agile, and cloud computing, providing students with a solid and applied foundation.<br/><br/>Cloud Computing, DevOps, and Agile methodologies</p>',
-            'details-nodejs': '<p>I served as a university professor at UNIVEM, teaching in the postgraduate course on Node.js. The course covered everything from the fundamentals of the language to building a complete backend application using RabbitMQ, Express, and MongoDB.<br/><br/>Node.js, RabbitMQ, Express, MongoDB</p>',
-            'details-fatec': '<p>I worked as a university professor at FATEC, teaching classes on Cloud Computing and Advanced Programming Techniques. I taught students the most modern and efficient practices for developing and deploying systems in the cloud.<br/><br/>Cloud Computing, Advanced Programming Techniques</p>',
-            'details-fhirflow': '<p>FHIR Flow is my master\'s thesis project where I created and implemented an application for health data interoperability using the FHIR protocol with machine learning and Large Language models. The model has a flow that implements lexical, syntactic, and semantic layers to identify adequate FHIR models and results, recognizing data from free text or structured data.<br/><br/>Technologies used were Python, FHIR, SNOMED-CT ontology, and fine-tuning techniques with OpenAI models and the spaCy library.</p>',
-            'details-sofarming': '<p>SOFARMING utilizes large language models to analyze video files and identify entities at specific timeframes. This enriched metadata is used to generate new, fragmented video files automatically based on user preferences and identified objects.<br/><br/>Technologies used were Python, Large Language Models (LLM), and React.js.</p>',
-            'details-semanticsearch': '<p>Semantic Search employs large language models to craft storylines for titles. These storylines are then vectorized using TensorFlow and stored in Elasticsearch. The frontend application, built with React.js, features voice recognition. User requests trigger ultra-low latency consultations with Elasticsearch, returning closely matched results.<br/><br/>Technologies used were Large Language Models (LLM), TensorFlow, Elasticsearch, and React.js.</p>',       
-            'details-agentx': '<p>Agent X is an AI Agent that collects trend data from X (Twitter) and Google Trends over the past 5 days. It uses Tavily to retrieve related news, detects the news stories with the highest emotional appeal, then identifies the movie subgenres that best match each news. It selects one story, performs a semantic search on an Elasticsearch database for related films, and automatically posts a tweet with the news and reply threads recommending related films, linking to the curated catalog on Filmelier.<br/><br/>Technologies used: Tavily API, Google Trends API, X API, OpenAI, Elasticsearch, Langchain, Python.</p>'
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Allan Ferreira - AI Engineer & Cloud Architect</title>
 
-        };
+  <meta
+    name="description"
+    content="Allan Ferreira, AI Engineer and Cloud Architect. Applied AI (LLMs) in production, scalable cloud platforms, and event-driven architectures."
+  />
+  <meta property="og:title" content="Allan Ferreira - AI Engineer & Cloud Architect" />
+  <meta
+    property="og:description"
+    content="Applied AI (LLMs) in production, cloud architecture, and scalable platforms."
+  />
+  <meta property="og:image" content="https://ferrerallan.github.io/images/allan-photo-2024.png" />
+  <meta property="og:url" content="https://ferrerallan.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-        function openModal(detailsId) {
-            document.getElementById('modal-details').innerHTML = detailsContent[detailsId];
-            document.getElementById('modal').style.display = "block";
-        }
+  <script>
+    const detailsContent = {
+      "details-sofya":
+        '<p>Sofya.AI is a startup focused on healthcare interoperability solutions. I worked as an AI Engineer developing a model for automatic pathology recognition and terminology cataloging, including SNOMED-CT, using the FHIR protocol. The solution combined large language models (LLMs) and machine learning techniques to interpret both structured and unstructured clinical data, enabling semantic integration across healthcare systems.<br/><br/>Stack: Python, LLMs, FHIR, SNOMED-CT, spaCy, machine learning.</p>',
 
-        function closeModal() {
-            document.getElementById('modal').style.display = "none";
-        }
+      "details-helpchains":
+        '<p>HelpChains.com is a blockchain application designed to raise funds securely and transparently through smart contracts built in Solidity and deployed on the BNB Chain. I worked on this project as an architect and developer, ensuring proper integration and functionality of the platform.<br/><br/>Stack: Solidity, BNB Chain, Hardhat, React.</p>',
 
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('modal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+      "details-soft":
+        "<p>With customers such as Netflix, Amazon Prime, and Google TV, I led the technical development of SOFT, an automation and financial transparency platform for the streaming sector. My role involved integrating complex data on performance, taxes, and fees, and delivering dashboards for rights holders. I also contributed to normalization and title identification algorithms, ensuring interoperability and enriching the central database.<br/><br/>Stack: AWS, Python, Django, MongoDB, MySQL, AWS SQS, AWS ECS, AWS Lambda.</p>",
 
-    </script>
+      "details-nestle":
+        "<p>Nestlé restructured its communication architecture with brokers and legacy software, redefining a B2B2C business model. I worked as a Software Engineer building APIs in an Azure cloud environment.<br/><br/>Stack: Azure, .NET Core, PostgreSQL.</p>",
+
+      "details-telemedicine":
+        "<p>HCFAMEMA Telemedicine is the telemedicine platform of the Hospital das Clínicas de Marília that enabled patients to continue receiving care during the 2020 pandemic. I worked as a systems architect, Scrum Master, tech lead, and developer.<br/><br/>Stack: .NET, Python, Node.js, C#, REST APIs, React, Oracle, PostgreSQL, Jitsi.</p>",
+
+      "details-representanet":
+        "<p>RepresentaNet is a complete system for managing sales representatives. I worked as a developer and systems architect.<br/><br/>Stack: ASP.NET, MySQL, C#. Mobile: Java, Android Studio.</p>",
+
+      "details-trivs":
+        "<p>TRIVS is a white-label platform that includes management of service and payment scheduling. It includes subscriber software, customer software, and mobile apps for iOS and Android. I worked as a developer, architect, and sysadmin.<br/><br/>Stack: Python, React, React Native, Expo, MySQL, Docker, shell scripts for automated multi-tenant provisioning.</p>",
+
+      "details-acessibilidade":
+        "<p>Acessibilidade Marília is an application where the population can view and add accessibility reference points with images and descriptions, to facilitate access for people who need adapted places. Available for web, Android, and iOS. I worked as creator and developer.<br/><br/>Stack: React, React Native, MySQL, Node.js, TypeScript.</p>",
+
+      "details-tanamão":
+        "<p>The HCFAMEMA Tá Na Mão app was created to communicate with patients in the HCFAMEMA care network, serving more than 1.2 million lives in Marília and the region. I worked as Scrum Master, development lead, systems architect, and developer.<br/><br/>Stack: Xamarin, ASP.NET, Oracle, PostgreSQL, MongoDB, Node.js, Python.</p>",
+
+      "details-consulting":
+        "<p>I worked as a consultant and trainer on MVC architecture for the development team at Marcon industry in Marília/SP.<br/><br/>Focus: Design Patterns consulting and training.</p>",
+
+      "details-iot":
+        "<p>Warehouse temperature monitoring solution. I worked as a circuit designer and full-stack developer.<br/><br/>Stack: Arduino, Objective-C, ASP.NET.<br/><br/>Role: Full-stack Developer.</p>",
+
+      "details-smartsoccer":
+        "<p>I worked as an information architect and machine learning developer. The project aimed to predict sports matches by collecting data from official competition datasets.<br/><br/>Stack: Python, Pandas, Google Colab, scikit-learn, Matplotlib, Seaborn.</p>",
+
+      "details-devops":
+        "<p>I worked as a university professor at UNIMAR, where I taught classes, recorded tutorials, and wrote a book for the Cloud Computing and DevOps course. Topics included AWS, Terraform, Kubernetes, Scrum, CI/CD, Agile, and cloud computing.<br/><br/>Focus: Cloud Computing, DevOps, and Agile.</p>",
+
+      "details-nodejs":
+        "<p>I served as a university professor at UNIVEM, teaching in the postgraduate course on Node.js. The course covered fundamentals through building a complete backend application using RabbitMQ, Express, and MongoDB.<br/><br/>Stack: Node.js, RabbitMQ, Express, MongoDB.</p>",
+
+      "details-fatec":
+        "<p>I worked as a university professor at FATEC, teaching Cloud Computing and Advanced Programming Techniques, focused on modern practices for building and deploying systems in the cloud.<br/><br/>Focus: Cloud Computing, Advanced Programming Techniques.</p>",
+
+      "details-fhirflow":
+        "<p>FHIR Flow is my master's thesis project. I created and implemented an application for health data interoperability using the FHIR protocol with machine learning and large language models. The solution implements lexical, syntactic, and semantic layers to map free text and structured data into adequate FHIR resources and outputs.<br/><br/>Stack: Python, FHIR, SNOMED-CT, fine-tuning with OpenAI models, spaCy.</p>",
+
+      "details-sofarming":
+        "<p>SOFARMING uses large language models to analyze video files and identify entities at specific timeframes. This metadata is used to automatically generate fragmented video files based on user preferences and identified objects.<br/><br/>Stack: Python, LLMs, React.</p>",
+
+      "details-semanticsearch":
+        "<p>Semantic Search uses large language models to craft storylines for titles. These storylines are vectorized using TensorFlow and stored in Elasticsearch. The frontend, built with React, supports voice recognition. User requests trigger ultra-low latency searches in Elasticsearch, returning closely matched results.<br/><br/>Stack: LLMs, TensorFlow, Elasticsearch, React.</p>",
+
+      "details-agentx":
+        "<p>Agent X is an AI agent that collects trend data from X (Twitter) and Google Trends over the past 5 days. It retrieves related news, selects stories with high emotional appeal, maps them to movie subgenres, performs semantic search on Elasticsearch for related films, and automatically posts a tweet and reply threads recommending related films with links to a curated catalog on Filmelier.<br/><br/>Stack: Tavily API, Google Trends API, X API, OpenAI, Elasticsearch, LangChain, Python.</p>",
+    };
+
+    function openModal(detailsId) {
+      const modal = document.getElementById("modal");
+      const content = document.getElementById("modal-details");
+      content.innerHTML = detailsContent[detailsId] || "<p>Details not found.</p>";
+      modal.style.display = "block";
+      document.getElementById("modal-close").focus();
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function (event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+
+    // Close modal on Escape
+    window.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
 </head>
+
 <body class="dark-theme">
-    <header class="header">
-        <nav class="nav" >
-            <ul style="background-color: #000; padding: 10px 20px; border-radius: 8px;">
-                <li><a href="#about" style="color: aquamarine;">About Me</a></li>
-                <li><a href="#resume" style="color: aquamarine;">Resume</a></li>
-                <li><a href="#portfolio" style="color: aquamarine;">Projects</a></li>
-                <li><a href="#testimonials" style="color: aquamarine;">Testimonials</a></li>                
-              </ul>
-              
-        </nav>
-        <div class="banner">
-            <h1 style="color: aquamarine;">Allan Ferreira</h1>
-            <h3><strong>Full Stack | AI Engineer. Certified AWS Architect. Certified Azure AI Engineer. MSc in Info Science. Blockchain. Instructor.</strong></h3>            
+  <header class="header">
+    <nav class="nav">
+      <ul style="background-color: #000; padding: 10px 20px; border-radius: 8px;">
+        <li><a href="#about" style="color: aquamarine;">About Me</a></li>
+        <li><a href="#resume" style="color: aquamarine;">Resume</a></li>
+        <li><a href="#portfolio" style="color: aquamarine;">Projects</a></li>
+        <li><a href="#testimonials" style="color: aquamarine;">Testimonials</a></li>
+      </ul>
+    </nav>
+
+    <div class="banner">
+      <h1 style="color: aquamarine;">Allan Ferreira</h1>
+      <h3>
+        <strong>AI Engineer | Cloud Architect | Full Stack. AWS SAA-C03. Azure AI Engineer. MSc in Information Science.</strong>
+      </h3>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="about">
+      <div class="about-container">
+        <img src="images/allan-photo-2024.png" alt="Allan Ferreira" class="profile-pic" />
+
+        <div class="about-text">
+          <p>
+            I build Applied AI systems that ship, from prototype to production, focused on LLMs, automation, and scalable cloud platforms.
+            With 20+ years in software architecture and technology leadership, I turn complex ideas into reliable, cost-efficient products with measurable value.
+          </p>
+
+          <p style="font-size: 14px;">
+            <img src="icons/linkedin.webp" alt="LinkedIn" style="height: 20px; vertical-align: middle;" />
+            <a href="https://www.linkedin.com/in/allan--ferreira/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            &nbsp; |
+            <img src="icons/email.webp" alt="Email" style="height: 20px; vertical-align: middle;" />
+            <a href="mailto:ferrerallan@gmail.com">ferrerallan@gmail.com</a>
+            &nbsp; |
+            <img src="icons/youtube.png" alt="YouTube" style="height: 20px; vertical-align: middle;" />
+            <a href="https://www.youtube.com/@ferrerallan" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </p>
         </div>
-    </header>
-    
-    <main>
-        <section id="about" class="about">            
-            <div class="about-container">
-              <img src="images/allan-photo-2024.png" alt="Allan Ferreira" class="profile-pic">
-              
-              <div class="about-text">                
-                <p>With 19 years of experience in software development, I am passionate about what I do. Always focused on learning and teaching, I am committed to continuous improvement, both individually and within teams, as well as the products I work on.</p>
-                
-                <p style="font-size: 14px;">
-                    <img src="icons/linkedin.webp" alt="LinkedIn" style="height: 20px; vertical-align: middle;">
-                    <a href="https://www.linkedin.com/in/allan--ferreira/" target="_blank">linkedIn</a>
-                    &nbsp; | 
-                    <img src="icons/email.webp" alt="Email" style="height: 20px; vertical-align: middle;">
-                    <a href="mailto:ferrerallan@gmail.com">ferrerallan@gmail.com</a>
-                    &nbsp; | 
-                    <img src="icons/youtube.png" alt="YouTube" style="height: 20px; vertical-align: middle;">
-                    <a href="https://www.youtube.com/@ferrerallan" target="_blank">channel</a>
-                  </p>
-              </div>
-            </div>
-          </section>
-          
+      </div>
+    </section>
 
-        <section id="resume" class="resume">
-            <h2 style="color: aquamarine;">Academic Education</h2>
-            <ul>
-                <li>
-                    <h3>UNESP</h3>
-                    <p>Master Degree in Information Science (2022 - 2024)</p>
-                    <p>Focus on 'Information and Technology' with a critical study of methods used to make information available and accessible, particularly using machine learning and interoperabilities models.</p>
-                </li>
-                <li>
-                    <h3>IGTI</h3>
-                    <p>MBA in Machine Learning (December 2019)</p>
-                    <p>Covered planning, modeling and application of advanced Machine Learning techniques to solve organizational problems.</p>
-                </li>
-                <li>
-                    <h3>UNIVEM</h3>
-                    <p>Postgraduate in Web Systems Development (November 2006)</p>
-                    <p>Specialized in developing web systems.</p>
-                </li>
-                <li>
-                    <h3>UNIVEM</h3>
-                    <p>Bachelor's Degree in Computer Science (November 2005)</p>
-                    <p>Graduated in Computer Science from UNIVEM - Márilia/SP.</p>
-                </li>
-            </ul>
+    <section id="resume" class="resume">
+      <h2 style="color: aquamarine;">Academic Education</h2>
+      <ul>
+        <li>
+          <h3>UNESP</h3>
+          <p>Master’s Degree in Information Science (2022 - 2024)</p>
+          <p>
+            Focus on Information and Technology with a critical study of methods to make information available and accessible,
+            particularly using machine learning and interoperability models.
+          </p>
+        </li>
+        <li>
+          <h3>IGTI</h3>
+          <p>MBA in Machine Learning (December 2019)</p>
+          <p>Covered planning, modeling, and application of advanced Machine Learning techniques to solve organizational problems.</p>
+        </li>
+        <li>
+          <h3>UNIVEM</h3>
+          <p>Postgraduate in Web Systems Development (November 2006)</p>
+          <p>Specialized in developing web systems.</p>
+        </li>
+        <li>
+          <h3>UNIVEM</h3>
+          <p>Bachelor’s Degree in Computer Science (November 2005)</p>
+          <p>Graduated in Computer Science from UNIVEM, Marília/SP.</p>
+        </li>
+      </ul>
 
-            <h2 style="color: aquamarine;">Certifications</h2>
-            <div class="certifications-grid">
-                <div class="cert-card">
-                    <img src="icons/aws-architect.webp" alt="AWS SAA" class="cert-icon">
-                    <h3>AWS Solutions Architect (SAA-C03)</h3>
-                    <p>Design secure, scalable systems on AWS.</p>
-                </div>
-                <div class="cert-card">
-                    <img src="icons/ai-102.webp" alt="Azure AI" class="cert-icon">
-                    <h3>Azure AI Engineer (AI-102)</h3>
-                    <p>AI apps with Azure Cognitive & ML services.</p>
-                </div>
-                <div class="cert-card">
-                    <img src="icons/az-204.webp" alt="AZ-204" class="cert-icon">
-                    <h3>Azure Developer (AZ-204)</h3>
-                    <p>Build and deploy Azure apps and APIs.</p>
-                </div>
-                <div class="cert-card">
-                    <img src="icons/tensorflow-badge-1920w.png" alt="Azure AI" class="cert-icon">
-                    <h3>TensorFlow Professional Developer</h3>
-                    <p>Build Deep Learning Models with TensorFlow</p>
-                </div>
-                <div class="cert-card">
-                    <img src="icons/Neo4j4.jpg" alt="Azure AI" class="cert-icon">
-                    <h3>Neo4j Certified Professional</h3>
-                    <p>Graph database expertise with Neo4j</p>
-                </div>
-                <div class="cert-card">
-                    <img src="icons/nft.png" alt="NFT Expert" class="cert-icon">
-                    <h3>Certified NFT Expert™</h3>
-                    <p>NFTs, digital assets, and blockchain use.</p>
-                </div>
-                <div class="cert-card">
-                    <img src="icons/docker.jpeg" alt="Docker" class="cert-icon">
-                    <h3>Certified Docker Foundations</h3>
-                    <p>Containerization with Docker basics.</p>
-                </div>
-                <div class="cert-card">
-                    <img src="icons/psm.avif" alt="PSM I" class="cert-icon">
-                    <h3>Scrum Master (PSM I)</h3>
-                    <p>Practical application of Scrum framework.</p>
-                </div>
-                <div class="cert-card">
-                    <img src="icons/clf-01.webp" alt="AWS CLF" class="cert-icon">
-                    <h3>AWS Cloud Practitioner (CLF-01)</h3>
-                    <p>Core AWS cloud concepts and services.</p>
-                </div>
-                <div class="cert-card">
-                    <img src="icons/az-900.png" alt="AZ-900" class="cert-icon">
-                    <h3>Azure Fundamentals (AZ-900)</h3>
-                    <p>Basic cloud and Azure service knowledge.</p>
-                </div>
-                
-                
-            </div>           
+      <h2 style="color: aquamarine;">Certifications</h2>
+      <div class="certifications-grid">
+        <div class="cert-card">
+          <img src="icons/aws-architect.webp" alt="AWS SAA" class="cert-icon" />
+          <h3>AWS Solutions Architect (SAA-C03)</h3>
+          <p>Design secure, scalable systems on AWS.</p>
+        </div>
+        <div class="cert-card">
+          <img src="icons/ai-102.webp" alt="Azure AI" class="cert-icon" />
+          <h3>Azure AI Engineer (AI-102)</h3>
+          <p>AI apps with Azure Cognitive and ML services.</p>
+        </div>
+        <div class="cert-card">
+          <img src="icons/az-204.webp" alt="AZ-204" class="cert-icon" />
+          <h3>Azure Developer (AZ-204)</h3>
+          <p>Build and deploy Azure apps and APIs.</p>
+        </div>
+        <div class="cert-card">
+          <img src="icons/tensorflow-badge-1920w.png" alt="TensorFlow" class="cert-icon" />
+          <h3>TensorFlow Professional Developer</h3>
+          <p>Build Deep Learning models with TensorFlow.</p>
+        </div>
+        <div class="cert-card">
+          <img src="icons/Neo4j4.jpg" alt="Neo4j" class="cert-icon" />
+          <h3>Neo4j Certified Professional</h3>
+          <p>Graph database expertise with Neo4j.</p>
+        </div>
+        <div class="cert-card">
+          <img src="icons/nft.png" alt="NFT Expert" class="cert-icon" />
+          <h3>Certified NFT Expert™</h3>
+          <p>NFTs, digital assets, and blockchain use.</p>
+        </div>
+        <div class="cert-card">
+          <img src="icons/docker.jpeg" alt="Docker" class="cert-icon" />
+          <h3>Certified Docker Foundations</h3>
+          <p>Containerization with Docker basics.</p>
+        </div>
+        <div class="cert-card">
+          <img src="icons/psm.avif" alt="PSM I" class="cert-icon" />
+          <h3>Scrum Master (PSM I)</h3>
+          <p>Practical application of Scrum framework.</p>
+        </div>
+        <div class="cert-card">
+          <img src="icons/clf-01.webp" alt="AWS CLF" class="cert-icon" />
+          <h3>AWS Cloud Practitioner (CLF-01)</h3>
+          <p>Core AWS cloud concepts and services.</p>
+        </div>
+        <div class="cert-card">
+          <img src="icons/az-900.png" alt="AZ-900" class="cert-icon" />
+          <h3>Azure Fundamentals (AZ-900)</h3>
+          <p>Basic cloud and Azure service knowledge.</p>
+        </div>
+      </div>
+    </section>
 
+    <section id="portfolio" class="portfolio">
+      <h2 style="color: aquamarine;">Important Projects</h2>
 
-        </section>
+      <div class="projects">
+        <div class="project" onclick="openModal('details-nestle')">
+          <img src="images/portfolio/nestle.png" alt="Nestlé - Brokers 3.0" />
+          <p>Nestlé - Brokers 3.0</p>
+        </div>
 
-        <section id="portfolio" class="portfolio">
-            <h2 style="color: aquamarine;">Important Projects</h2>
-            <div class="projects">
-                <div class="project" onclick="openModal('details-nestle')">
-                    <img src="images/portfolio/nestle.png" alt="Nestlé - Brokers 3.0">
-                    <p>Nestlé - Brokers 3.0</p>
-                </div>
-                <div class="project" onclick="openModal('details-helpchains')">
-                    <img src="images/portfolio/helpchains.jpg" alt="Smart Soccer">
-                    <p>Helpchains.com: Blockchain DApp</p>
-                </div>
-                <div class="projects">
-                    <div class="project" onclick="openModal('details-fhirflow')">
-                        <img src="images/portfolio/fhirflow.jpeg" alt="FHIR Flow">  <p>FHIR Flow: Health Data Interoperability</p>
-                    </div>
-                </div>
-                <div class="project" onclick="openModal('details-sofya')">
-                    <img src="images/portfolio/sofya_health_logo.jpeg" alt="Semantic Search">  
-                    <p>Sofya AI Health</p>
-                </div>
-                <div class="project" onclick="openModal('details-telemedicine')">
-                    <img src="images/portfolio/telemedicina.png" alt="HCFAMEMA Telemedicine">
-                    <p>HCFAMEMA Telemedicine</p>
-                </div>
-                <div class="project" onclick="openModal('details-soft')">
-                    <img src="images/portfolio/soft.png" alt="SOFT">
-                    <p>SOFT: Financial Transactions</p>
-                </div>
-                <div class="project" onclick="openModal('details-semanticsearch')">
-                    <img src="images/portfolio/semanticsearch.jpeg" alt="Semantic Search">  
-                    <p>Semantic Search: Voice-Activated Search on Elasticsearch</p>
-                </div>
-                <div class="project" onclick="openModal('details-devops')">
-                    <img src="images/portfolio/devops.jpeg" alt="Devops">
-                    <p>University Professor: Devops & Cloud Computing</p>
-                </div>
-                <div class="project" onclick="openModal('details-fatec')">
-                    <img src="images/portfolio/fatec.png" alt="Devops">
-                    <p>University Professor: Advanced Programming Techniques</p>
-                </div>
-                <div class="project" onclick="openModal('details-nodejs')">
-                    <img src="images/portfolio/node.png" alt="Devops">
-                    <p>University Professor: Nodejs</p>
-                </div>
-                <div class="project" onclick="openModal('details-smartsoccer')">
-                    <img src="images/portfolio/smartsoccer.jpeg" alt="Smart Soccer">
-                    <p>Smart Soccer - AI</p>
-                </div>
-                
-                <div class="project" onclick="openModal('details-iot')">
-                    <img src="images/portfolio/arduino.jpg" alt="Iot">
-                    <p>Temperature Monitoring with IOT</p>
-                </div>
-                <div class="project" onclick="openModal('details-agentx')">
-                    <img src="images/portfolio/agentx.png" alt="Agent X">
-                    <p>Agent X: AI Agent for Movie Curation via Social Trends</p>
-                </div>
-                
-                
-                
-                
-                
-                
-                <div class="project" onclick="openModal('details-representanet')">
-                    <img src="images/portfolio/representanet.png" alt="Representanet.com.br">
-                    <p>Representanet</p>
-                </div>
-                <div class="project" onclick="openModal('details-trivs')">
-                    <img src="images/portfolio/logo-trivs.png" alt="TRIVS">
-                    <p>TRIVS</p>
-                </div>
-                <div class="project" onclick="openModal('details-acessibilidade')">
-                    <img src="images/portfolio/acessibilidade.png" alt="Acessibilidade Marília">
-                    <p>Acessibilidade Marília</p>
-                </div>
-                <div class="project" onclick="openModal('details-tanamão')">
-                    <img src="images/portfolio/br.dti.hctanamao_1.png" alt="HC ta na mão">
-                    <p>HC tá na mão</p>
-                </div>
-                <div class="project" onclick="openModal('details-consulting')">
-                    <img src="images/portfolio/marcon.jpg" alt="HC ta na mão">
-                    <p>Engineer Consulting</p>
-                </div>
-                
-                
-                
-            </div>
+        <div class="project" onclick="openModal('details-helpchains')">
+          <img src="images/portfolio/helpchains.jpg" alt="HelpChains" />
+          <p>HelpChains.com: Blockchain DApp</p>
+        </div>
 
-            <div id="modal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <div id="modal-details"></div>
-                </div>
-            </div>
-        </section>
+        <div class="project" onclick="openModal('details-fhirflow')">
+          <img src="images/portfolio/fhirflow.jpeg" alt="FHIR Flow" />
+          <p>FHIR Flow: Health Data Interoperability</p>
+        </div>
 
-        <section id="testimonials" class="testimonials">
-            <h2 style="color: aquamarine;">Testimonials from professionals</h2>
-            <ul>
-                <li>
-                    <img src="images/beto.jpeg" alt="Beto Lima" class="testimonial-pic">
-                    <p >"Born leader! Even when I led him I saw in a great leader. With assertive and quality, positive attitudes, punctual games to relax tense situations, but without losing focus and, somewhat admirably, he knows how to actively listen. I'm sure I learned from him as much as I taught and way beyond the source code" – Beto Lima: Consultant SAP ABAP/HANA/Fiori-UI5 in Tecno LLAB</p>
-                </li>
-                <li>
-                    <img src="images/regis.jpeg" alt="Reinaldo Porte Peres" class="testimonial-pic">
-                    <p >"A professional example of leadership. Has the ability to make the team always work in the best and most effective way. It has a rare differential to stand out so much technically as in business!" – Reinaldo Porte Peres: Fullstack developer in HCFAMEMA</p>
-                </li>
-                <li>
-                    <img src="images/wagner.jpeg" alt="Wagner Jeferson Binoto" class="testimonial-pic">
-                    <p >"I worked with Allan for over 3 years and what stands out about him is the spirit investigative to discover new things to improve what is being done. His enthusiasm for discovering new technologies, new methods is contagious because he has a internal motivator that overflows outward inspiring those around you. An exemplary and inspiring professional" – Wagner Jeferson Binoto: Lead Consultant Project Service LATAM - ADP do Brazil</p>
-                </li>
-            </ul>
-        </section>
-    </main>
+        <div class="project" onclick="openModal('details-sofya')">
+          <img src="images/portfolio/sofya_health_logo.jpeg" alt="Sofya AI Health" />
+          <p>Sofya AI Health</p>
+        </div>
 
-    <footer class="footer">
-        <p>&copy; 2025 Allan Ferreira | <a href="https://www.linkedin.com/in/allan--ferreira/" target="_blank">LinkedIn</a> </p>
-    </footer>
-    <script>
-        function toggleDetails(id) {
-            var details = document.getElementById(id);
-            if (details.style.display === "block") {
-                details.style.display = "none";
-            } else {
-                details.style.display = "block";
-            }
-        }
-    </script>
+        <div class="project" onclick="openModal('details-telemedicine')">
+          <img src="images/portfolio/telemedicina.png" alt="HCFAMEMA Telemedicine" />
+          <p>HCFAMEMA Telemedicine</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-soft')">
+          <img src="images/portfolio/soft.png" alt="SOFT" />
+          <p>SOFT: Financial Transactions</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-semanticsearch')">
+          <img src="images/portfolio/semanticsearch.jpeg" alt="Semantic Search" />
+          <p>Semantic Search: Voice-Activated Search on Elasticsearch</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-devops')">
+          <img src="images/portfolio/devops.jpeg" alt="DevOps" />
+          <p>University Professor: DevOps and Cloud Computing</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-fatec')">
+          <img src="images/portfolio/fatec.png" alt="FATEC" />
+          <p>University Professor: Advanced Programming Techniques</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-nodejs')">
+          <img src="images/portfolio/node.png" alt="Node.js" />
+          <p>University Professor: Node.js</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-smartsoccer')">
+          <img src="images/portfolio/smartsoccer.jpeg" alt="Smart Soccer" />
+          <p>Smart Soccer: AI</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-iot')">
+          <img src="images/portfolio/arduino.jpg" alt="IoT" />
+          <p>Temperature Monitoring with IoT</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-agentx')">
+          <img src="images/portfolio/agentx.png" alt="Agent X" />
+          <p>Agent X: AI Agent for Movie Curation via Social Trends</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-representanet')">
+          <img src="images/portfolio/representanet.png" alt="RepresentaNet" />
+          <p>RepresentaNet</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-trivs')">
+          <img src="images/portfolio/logo-trivs.png" alt="TRIVS" />
+          <p>TRIVS</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-acessibilidade')">
+          <img src="images/portfolio/acessibilidade.png" alt="Acessibilidade Marília" />
+          <p>Acessibilidade Marília</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-tanamão')">
+          <img src="images/portfolio/br.dti.hctanamao_1.png" alt="HCFAMEMA Tá Na Mão" />
+          <p>HCFAMEMA Tá Na Mão</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-consulting')">
+          <img src="images/portfolio/marcon.jpg" alt="Consulting" />
+          <p>Engineering Consulting</p>
+        </div>
+      </div>
+
+      <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Project details">
+        <div class="modal-content">
+          <button id="modal-close" class="close" onclick="closeModal()" aria-label="Close">&times;</button>
+          <div id="modal-details"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <h2 style="color: aquamarine;">Testimonials from professionals</h2>
+      <ul>
+        <li>
+          <img src="images/beto.jpeg" alt="Beto Lima" class="testimonial-pic" />
+          <p>
+            "Born leader! Even when I led him I saw a great leader. Assertive and high-quality attitudes, timely jokes to relax tense
+            situations, without losing focus, and he knows how to actively listen. I'm sure I learned from him as much as I taught,
+            and far beyond the source code." – Beto Lima: Consultant SAP ABAP/HANA/Fiori-UI5 in Tecno LLAB
+          </p>
+        </li>
+        <li>
+          <img src="images/regis.jpeg" alt="Reinaldo Porte Peres" class="testimonial-pic" />
+          <p>
+            "A professional example of leadership. Has the ability to make the team work in the best and most effective way. He has a rare
+            differential to stand out technically and in business." – Reinaldo Porte Peres: Full-stack Developer in HCFAMEMA
+          </p>
+        </li>
+        <li>
+          <img src="images/wagner.jpeg" alt="Wagner Jeferson Binoto" class="testimonial-pic" />
+          <p>
+            "I worked with Allan for over 3 years and what stands out is his investigative spirit to discover new things to improve what is being done.
+            His enthusiasm for discovering new technologies and methods is contagious and inspires those around him. An exemplary professional."
+            – Wagner Jeferson Binoto: Lead Consultant Project Service LATAM - ADP Brazil
+          </p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      &copy; 2025 Allan Ferreira |
+      <a href="https://www.linkedin.com/in/allan--ferreira/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    // Left here in case you use it later; safe to remove if unused.
+    function toggleDetails(id) {
+      var details = document.getElementById(id);
+      if (!details) return;
+      details.style.display = details.style.display === "block" ? "none" : "block";
+    }
+  </script>
 </body>
 </html>
