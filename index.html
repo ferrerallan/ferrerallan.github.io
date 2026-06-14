@@ -40,7 +40,7 @@
         "<p>HCFAMEMA Telemedicine is the telemedicine platform of the Hospital das Clínicas de Marília that enabled patients to continue receiving care during the 2020 pandemic. I worked as a systems architect, Scrum Master, tech lead, and developer.<br/><br/>Stack: .NET, Python, Node.js, C#, REST APIs, React, Oracle, PostgreSQL, Jitsi.</p>",
 
       "details-representanet":
-        "<p>RepresentaNet is a complete system for managing sales representatives. I worked as a developer and systems architect.<br/><br/>Stack: ASP.NET, MySQL, C#. Mobile: Java, Android Studio.</p>",
+        "<p>RepresentaNet is a B2B SaaS for managing sales representatives, in production for over 10 years with paying customers. As founder and engineer, I recently re-platformed it end to end, migrating from ASP.NET 4.5 to .NET Core (C#) with a React front end, now running on Linux with nginx, and I built the full infrastructure myself.<br/><br/>Stack: .NET Core, C#, React, Linux, nginx, MySQL.</p>",
 
       "details-trivs":
         "<p>TRIVS is a white-label platform that includes management of service and payment scheduling. It includes subscriber software, customer software, and mobile apps for iOS and Android. I worked as a developer, architect, and sysadmin.<br/><br/>Stack: Python, React, React Native, Expo, MySQL, Docker, shell scripts for automated multi-tenant provisioning.</p>",
@@ -72,14 +72,17 @@
       "details-fhirflow":
         "<p>FHIR Flow is my master's thesis project. I created and implemented an application for health data interoperability using the FHIR protocol with machine learning and large language models. The solution implements lexical, syntactic, and semantic layers to map free text and structured data into adequate FHIR resources and outputs.<br/><br/>Stack: Python, FHIR, SNOMED-CT, fine-tuning with OpenAI models, spaCy.</p>",
 
-      "details-sofarming":
-        "<p>SOFARMING uses large language models to analyze video files and identify entities at specific timeframes. This metadata is used to automatically generate fragmented video files based on user preferences and identified objects.<br/><br/>Stack: Python, LLMs, React.</p>",
-
       "details-semanticsearch":
         "<p>Semantic Search uses large language models to craft storylines for titles. These storylines are vectorized using TensorFlow and stored in Elasticsearch. The frontend, built with React, supports voice recognition. User requests trigger ultra-low latency searches in Elasticsearch, returning closely matched results.<br/><br/>Stack: LLMs, TensorFlow, Elasticsearch, React.</p>",
 
       "details-agentx":
         "<p>Agent X is an AI agent that collects trend data from X (Twitter) and Google Trends over the past 5 days. It retrieves related news, selects stories with high emotional appeal, maps them to movie subgenres, performs semantic search on Elasticsearch for related films, and automatically posts a tweet and reply threads recommending related films with links to a curated catalog on Filmelier.<br/><br/>Stack: Tavily API, Google Trends API, X API, OpenAI, Elasticsearch, LangChain, Python.</p>",
+
+      "details-midas":
+        "<p>MIDAS is SOFA Digital's on-premise AI media platform and the core of my recent work. It runs full pipelines that mix Visual Language Models (VLMs), computer vision, and LLMs to extract insights from video and to generate advertising material. Running fully on-premise for cost control and data privacy, it replaced Azure Video Indexer and embeds six generative-AI products, including automated self-publishing and prompt-based thumbnail generation.<br/><br/>Stack: Python, VLMs, LLMs, Computer Vision, on-premise GPU inference, React.</p>",
+
+      "details-aiagents":
+        "<p>I designed and delivered a hands-on AI Agents program, working through the full spectrum of agent patterns: rule-based logic, single LLM calls, sequential chains, routers, state machines, ReAct, and self-correcting (corrective) RAG. It ships with five open-source reference implementations.<br/><br/>Stack: Python, LangChain, LangGraph, LangSmith, FAISS, ChromaDB, OpenAI, Azure.<br/><br/>Repos: <a href='https://github.com/ferrerallan/corrective-rag' target='_blank' rel='noopener noreferrer'>Corrective RAG</a>, <a href='https://github.com/ferrerallan/ai-react-agent-azure' target='_blank' rel='noopener noreferrer'>ReAct Agent</a>, <a href='https://github.com/ferrerallan/ai-engage-agentic' target='_blank' rel='noopener noreferrer'>Agentic Router</a>, <a href='https://github.com/ferrerallan/ai-agent-orders' target='_blank' rel='noopener noreferrer'>Conversational ReAct</a>, <a href='https://github.com/ferrerallan/christmas-card-chain' target='_blank' rel='noopener noreferrer'>LangChain Chain</a>.</p>",
     };
 
     function openModal(detailsId) {
@@ -107,6 +110,169 @@
       if (e.key === "Escape") closeModal();
     });
   </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root{
+      --teal:#5eead4; --aqua:#7fffd4; --cyan:#67e8f9; --purple:#a78bfa; --gold:#ffc94d;
+    }
+
+    html{ scroll-behavior:smooth; }
+
+    body.dark-theme{
+      width:min(1180px,92%);
+      background:#070b12;
+      color:#cdeee3;
+      font-family:'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-size:16px;
+      line-height:1.6;
+      position:relative; z-index:0;
+      overflow-x:hidden;
+    }
+
+    /* animated aurora background */
+    body.dark-theme::before{
+      content:""; position:fixed; inset:-15%; z-index:-3; pointer-events:none;
+      background:
+        radial-gradient(38% 38% at 18% 22%, rgba(94,234,212,.20), transparent 60%),
+        radial-gradient(42% 42% at 82% 28%, rgba(167,139,250,.18), transparent 60%),
+        radial-gradient(48% 48% at 62% 88%, rgba(103,232,249,.16), transparent 60%),
+        radial-gradient(36% 36% at 12% 82%, rgba(255,201,77,.10), transparent 60%);
+      filter:blur(34px) saturate(120%);
+      animation:aurora 24s ease-in-out infinite alternate;
+    }
+    @keyframes aurora{
+      0%{ transform:translate3d(0,0,0) scale(1); }
+      50%{ transform:translate3d(2.5%,-2.5%,0) scale(1.1); }
+      100%{ transform:translate3d(-2.5%,2.5%,0) scale(1.05); }
+    }
+    /* faint moving grid */
+    body.dark-theme::after{
+      content:""; position:fixed; inset:0; z-index:-3; pointer-events:none; opacity:.4;
+      background-image:linear-gradient(rgba(94,234,212,.05) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(94,234,212,.05) 1px,transparent 1px);
+      background-size:46px 46px;
+      -webkit-mask-image:radial-gradient(circle at 50% 22%, #000, transparent 78%);
+      mask-image:radial-gradient(circle at 50% 22%, #000, transparent 78%);
+    }
+
+    #fx-canvas{ position:fixed; inset:0; z-index:-2; pointer-events:none; }
+    #cursor-glow{ position:fixed; left:0; top:0; width:560px; height:560px; z-index:-1; pointer-events:none;
+      transform:translate(-50%,-50%);
+      background:radial-gradient(circle, rgba(94,234,212,.10), rgba(167,139,250,.05) 35%, transparent 62%); }
+    #scroll-bar{ position:fixed; top:0; left:0; height:3px; width:0; z-index:60;
+      background:linear-gradient(90deg,var(--teal),var(--cyan),var(--purple)); box-shadow:0 0 14px var(--teal); }
+
+    /* glass panels */
+    .header,.about,.resume,.portfolio,.testimonials,.footer{
+      background:rgba(13,19,31,.55)!important;
+      border:1px solid rgba(94,234,212,.14);
+      -webkit-backdrop-filter:blur(15px) saturate(135%); backdrop-filter:blur(15px) saturate(135%);
+      box-shadow:0 14px 46px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.04);
+      border-radius:20px; position:relative; z-index:1; margin-top:26px;
+      padding:30px;
+    }
+
+    /* floating glass nav */
+    .nav ul{ background:rgba(9,13,21,.6)!important; -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
+      border:1px solid rgba(94,234,212,.18); box-shadow:0 10px 34px rgba(0,0,0,.5); border-radius:14px!important;
+      transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s; }
+    .nav.floating ul{ position:fixed; top:14px; left:50%; transform:translateX(-50%);
+      box-shadow:0 14px 44px rgba(0,0,0,.6), 0 0 26px rgba(94,234,212,.16); }
+    .nav ul li a{ position:relative; color:var(--aqua)!important; padding:6px 12px; }
+    .nav ul li a::after{ content:""; position:absolute; left:12px; right:12px; bottom:2px; height:2px; transform:scaleX(0);
+      transform-origin:left; background:linear-gradient(90deg,var(--teal),var(--purple)); transition:transform .3s; }
+    .nav ul li a:hover::after{ transform:scaleX(1); }
+    .nav ul li a:hover{ text-shadow:0 0 12px var(--teal); }
+
+    /* animated gradient hero title */
+    .banner h1{ font-family:'Space Grotesk',sans-serif!important; font-weight:700;
+      font-size:clamp(2.7rem,6.5vw,4.6rem); line-height:1.05; letter-spacing:-1px;
+      background:linear-gradient(100deg,#7fffd4,#67e8f9,#a78bfa,#7fffd4); background-size:300% 100%;
+      -webkit-background-clip:text; background-clip:text; color:transparent!important;
+      animation:hue 9s linear infinite; filter:drop-shadow(0 6px 26px rgba(94,234,212,.25)); }
+    @keyframes hue{ to{ background-position:300% 0; } }
+    .banner h3{ font-family:'Space Grotesk',sans-serif!important; color:#9db4c9!important;
+      font-weight:400; letter-spacing:.4px; font-size:clamp(.82rem,1.7vw,1.06rem); }
+    .banner h3 strong{ font-weight:500; }
+
+    /* cohesive typography scale */
+    .resume h2,.portfolio h2,.testimonials h2{ font-family:'Space Grotesk',sans-serif!important;
+      font-size:clamp(1.3rem,2.4vw,1.6rem)!important; font-weight:600; letter-spacing:.3px;
+      margin-bottom:24px; text-shadow:0 0 22px rgba(94,234,212,.22); }
+    .about-text p{ font-size:1rem!important; line-height:1.7; }
+    .resume ul li h3{ font-size:1.05rem!important; font-weight:600; margin-bottom:4px; }
+    .resume ul li p{ font-size:.92rem!important; line-height:1.55; }
+    .portfolio .project p{ font-size:.9rem!important; line-height:1.35; margin-top:8px; }
+    .testimonials ul li{ font-size:.95rem!important; line-height:1.6; }
+    .modal-content{ font-size:.95rem!important; line-height:1.65; }
+    .nav ul li a{ font-size:.95rem; }
+    .footer, .footer p{ font-size:.85rem!important; }
+
+    /* glass cards + neon hover (tilt handled in JS) */
+    .portfolio .project,.cert-card,.resume ul li,.testimonials ul li{
+      background:rgba(11,17,27,.62)!important; border:1px solid rgba(94,234,212,.12);
+      -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+      box-shadow:0 8px 26px rgba(0,0,0,.42);
+      transition:transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s;
+      transform-style:preserve-3d; will-change:transform;
+    }
+    .portfolio .project{ position:relative; overflow:hidden; }
+    .portfolio .project::before{ content:""; position:absolute; inset:0; border-radius:5px; padding:1px;
+      background:linear-gradient(130deg,rgba(94,234,212,.6),rgba(167,139,250,.45),transparent 62%);
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor; mask-composite:exclude; opacity:0; transition:opacity .3s; pointer-events:none; }
+    .portfolio .project:hover::before{ opacity:1; }
+    .portfolio .project:hover,.cert-card:hover,.resume ul li:hover,.testimonials ul li:hover{
+      box-shadow:0 20px 54px rgba(0,0,0,.55), 0 0 32px rgba(94,234,212,.18);
+      border-color:rgba(94,234,212,.42); }
+    .portfolio .project img{ transition:transform .45s ease, filter .45s ease; }
+    .portfolio .project:hover img{ transform:scale(1.07); filter:saturate(1.15); }
+    .portfolio .project p{ color:var(--aqua); }
+
+    /* gradient ring + float on photo */
+    .profile-pic{ border:3px solid transparent;
+      background:linear-gradient(#0b0f18,#0b0f18) padding-box,
+                 conic-gradient(from 140deg, var(--teal),var(--purple),var(--cyan),var(--teal)) border-box;
+      box-shadow:0 0 34px rgba(94,234,212,.28); animation:floaty 6s ease-in-out infinite; }
+    @keyframes floaty{ 50%{ transform:translateY(-9px); } }
+
+    /* links */
+    a{ color:var(--teal); }
+    a:hover{ color:#fff; text-shadow:0 0 10px var(--teal); }
+
+    .cert-card .cert-icon{ transition:transform .3s, filter .3s; }
+    .cert-card:hover .cert-icon{ transform:translateY(-4px) scale(1.04); filter:drop-shadow(0 0 12px rgba(94,234,212,.55)); }
+
+    /* certifications: 5 per row, smaller, like Selected Impact */
+    .certifications-grid{ grid-template-columns:repeat(auto-fill, minmax(200px,1fr))!important; gap:20px!important; }
+    .cert-card{ padding:14px!important; }
+    .cert-icon{ max-width:60px!important; margin-bottom:8px; }
+    .cert-card h3{ font-size:.86rem; line-height:1.25; }
+    .cert-card p{ font-size:.72rem; line-height:1.35; color:#9db4c9; }
+    @media (max-width:768px){ .certifications-grid{ grid-template-columns:repeat(2,1fr)!important; } }
+
+    /* modal glass */
+    .modal{ -webkit-backdrop-filter:blur(7px); backdrop-filter:blur(7px); background:rgba(3,6,12,.72)!important; }
+    .modal-content{ background:rgba(13,19,31,.94)!important; border:1px solid rgba(94,234,212,.25);
+      box-shadow:0 24px 70px rgba(0,0,0,.6), 0 0 44px rgba(94,234,212,.12); border-radius:16px; }
+    .modal-content a{ color:var(--aqua); }
+
+    /* scroll reveal */
+    .reveal{ opacity:0; }
+    .reveal.in-view{ animation:rise .7s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes rise{ from{ opacity:0; transform:translateY(30px); } to{ opacity:1; transform:none; } }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none!important; }
+    }
+    @media (max-width:768px){
+      body.dark-theme{ width:calc(100% - 16px); }
+      #cursor-glow{ display:none; }
+      .header,.about,.resume,.portfolio,.testimonials,.footer{ padding:20px; }
+    }
+  </style>
 </head>
 
 <body class="dark-theme">
@@ -123,7 +289,7 @@
     <div class="banner">
       <h1 style="color: aquamarine;">Allan Ferreira</h1>
       <h3>
-        <strong>AI Engineer & PhD Student in Computer Vision | Cloud Architect (AWS/Azure) | Full-Stack | MSc Information Science</strong>
+        <strong>AI Engineer | LLMs, RAG & Agents in Production | Cloud Architect (AWS/Azure) | Full-Stack | PhD Researcher in Computer Vision</strong>
       </h3>
     </div>
   </header>
@@ -135,13 +301,19 @@
 
         <div class="about-text">
           <p>
-            I build Applied AI systems that ship, from prototype to production, focused on LLMs, automation, and scalable cloud platforms.
-            With 20+ years in software architecture and technology leadership, I turn complex ideas into reliable, cost-efficient products with measurable value.
+            I build Applied AI systems that ship, from prototype to production, focused on LLMs, RAG, agents, and scalable cloud platforms.
+            With 20 years writing software across backend, cloud, and AI, I turn complex ideas into reliable, cost-efficient products with measurable value.
+            Today I build Applied AI at SOFA Digital, and I write about LLMs, RAG, and agents on my blog,
+            <a href="https://allanferreira.dev" target="_blank" rel="noopener noreferrer" style="color: aquamarine;">allanferreira.dev</a>.
           </p>
 
           <p style="font-size: 14px;">
             <img src="icons/linkedin.webp" alt="LinkedIn" style="height: 20px; vertical-align: middle;" />
             <a href="https://www.linkedin.com/in/allan--ferreira/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            &nbsp; |
+            <a href="https://github.com/ferrerallan" target="_blank" rel="noopener noreferrer">GitHub</a>
+            &nbsp; |
+            <a href="https://allanferreira.dev" target="_blank" rel="noopener noreferrer">Blog</a>
             &nbsp; |
             <img src="icons/email.webp" alt="Email" style="height: 20px; vertical-align: middle;" />
             <a href="mailto:ferrerallan@gmail.com">ferrerallan@gmail.com</a>
@@ -248,6 +420,16 @@
       <h2 style="color: aquamarine;">Selected Impact</h2>
 
       <div class="projects">
+        <div class="project" onclick="openModal('details-midas')">
+          <img src="images/portfolio/midas.png" alt="MIDAS" />
+          <p>MIDAS: On-Premise AI Media Platform</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-aiagents')">
+          <img src="images/portfolio/ai-agents.png" alt="AI Agents" />
+          <p>AI Agents: Instructor &amp; Reference Implementations</p>
+        </div>
+
         <div class="project" onclick="openModal('details-nestle')">
           <img src="images/portfolio/nestle.png" alt="Nestlé - Brokers 3.0" />
           <p>Nestlé - Brokers 3.0</p>
@@ -386,6 +568,91 @@
       if (!details) return;
       details.style.display = details.style.display === "block" ? "none" : "block";
     }
+  </script>
+
+  <script>
+    (function () {
+      function ready(fn){ document.readyState!='loading' ? fn() : document.addEventListener('DOMContentLoaded', fn); }
+      ready(function () {
+        try {
+          var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          var bar = document.createElement('div'); bar.id = 'scroll-bar'; document.body.appendChild(bar);
+          var glow = document.createElement('div'); glow.id = 'cursor-glow'; document.body.appendChild(glow);
+          var canvas = document.createElement('canvas'); canvas.id = 'fx-canvas'; document.body.appendChild(canvas);
+          var ctx = canvas.getContext('2d');
+          var W, H, DPR = Math.min(window.devicePixelRatio || 1, 2), pts = [], mouse = { x: -9999, y: -9999 };
+
+          function resize(){
+            W = canvas.width = innerWidth * DPR; H = canvas.height = innerHeight * DPR;
+            canvas.style.width = innerWidth + 'px'; canvas.style.height = innerHeight + 'px';
+            var n = Math.max(36, Math.min(96, Math.floor(innerWidth * innerHeight / 15000))); pts = [];
+            for (var i = 0; i < n; i++) pts.push({ x: Math.random()*W, y: Math.random()*H, vx:(Math.random()-.5)*.22*DPR, vy:(Math.random()-.5)*.22*DPR });
+          }
+          resize(); addEventListener('resize', resize);
+
+          function loop(){
+            ctx.clearRect(0,0,W,H);
+            var maxD = (132*DPR)*(132*DPR);
+            for (var i=0;i<pts.length;i++){
+              var p=pts[i]; p.x+=p.vx; p.y+=p.vy;
+              if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1;
+              ctx.beginPath(); ctx.arc(p.x,p.y,1.5*DPR,0,6.2832); ctx.fillStyle='rgba(127,255,212,.65)'; ctx.fill();
+            }
+            for (var i=0;i<pts.length;i++){
+              for (var j=i+1;j<pts.length;j++){
+                var a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;
+                if(d<maxD){ var o=(1-d/maxD)*.45; ctx.strokeStyle='rgba(94,234,212,'+o+')'; ctx.lineWidth=DPR; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
+              }
+            }
+            var mx=mouse.x*DPR,my=mouse.y*DPR,maxM=(190*DPR)*(190*DPR);
+            for (var i=0;i<pts.length;i++){
+              var p=pts[i],dx=p.x-mx,dy=p.y-my,d=dx*dx+dy*dy;
+              if(d<maxM){ var o=(1-d/maxM)*.8; ctx.strokeStyle='rgba(167,139,250,'+o+')'; ctx.lineWidth=DPR; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(mx,my); ctx.stroke(); }
+            }
+            requestAnimationFrame(loop);
+          }
+          if (!reduce) loop();
+
+          addEventListener('mousemove', function(e){
+            mouse.x=e.clientX; mouse.y=e.clientY;
+            glow.style.left=e.clientX+'px'; glow.style.top=e.clientY+'px';
+          });
+
+          addEventListener('scroll', function(){
+            var h=document.documentElement, sc=h.scrollTop/(h.scrollHeight-h.clientHeight||1);
+            bar.style.width=(sc*100)+'%';
+            var nav=document.querySelector('.nav'); if(nav){ h.scrollTop>240 ? nav.classList.add('floating') : nav.classList.remove('floating'); }
+          });
+
+          if ('IntersectionObserver' in window && !reduce){
+            var io=new IntersectionObserver(function(es){
+              es.forEach(function(en){
+                if(en.isIntersecting){
+                  en.target.classList.add('in-view'); io.unobserve(en.target);
+                  en.target.addEventListener('animationend', function(){ en.target.classList.remove('reveal','in-view'); }, { once:true });
+                }
+              });
+            }, { threshold:.12 });
+            document.querySelectorAll('main > section, .project, .cert-card, .testimonials ul li').forEach(function(el,i){
+              el.classList.add('reveal'); el.style.animationDelay=((i%6)*0.06)+'s'; io.observe(el);
+            });
+          }
+
+          if (!reduce){
+            document.querySelectorAll('.project, .cert-card').forEach(function(el){
+              var raf=null;
+              el.addEventListener('mousemove', function(e){
+                var r=el.getBoundingClientRect(), px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+                if(raf) cancelAnimationFrame(raf);
+                raf=requestAnimationFrame(function(){ el.style.transform='perspective(820px) rotateX('+(-py*8).toFixed(2)+'deg) rotateY('+(px*8).toFixed(2)+'deg) translateY(-6px)'; });
+              });
+              el.addEventListener('mouseleave', function(){ if(raf) cancelAnimationFrame(raf); el.style.transform=''; });
+            });
+          }
+        } catch (e) { if (window.console) console.warn('fx error', e); }
+      });
+    })();
   </script>
 </body>
 </html>
