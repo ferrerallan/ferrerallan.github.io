@@ -78,6 +78,9 @@
       "details-agentx":
         "<p>Agent X is an AI agent that collects trend data from X (Twitter) and Google Trends over the past 5 days. It retrieves related news, selects stories with high emotional appeal, maps them to movie subgenres, performs semantic search on Elasticsearch for related films, and automatically posts a tweet and reply threads recommending related films with links to a curated catalog on Filmelier.<br/><br/>Stack: Tavily API, Google Trends API, X API, OpenAI, Elasticsearch, LangChain, Python.</p>",
 
+      "details-sofia":
+        "<p>SOFIA is SOFA Digital's internal RAG assistant, adopted by the back office as the company's official information hub. A LangGraph agent classifies each question and routes it: general questions are answered from a FAISS index built over intranet documents stored in S3 and parsed with docling, while title-specific questions are resolved by calling an internal service by vendor_id. I built it end to end, from document ingestion to the chat UI.<br/><br/>Stack: Python, LangGraph, LangChain, OpenAI (GPT-4o-mini), FAISS, sentence-transformers, docling, AWS S3 (boto3), Streamlit, FastAPI.</p>",
+
       "details-midas":
         "<p>MIDAS is SOFA Digital's on-premise AI media platform and the core of my recent work. It runs full pipelines that mix Visual Language Models (VLMs), computer vision, and LLMs to extract insights from video and to generate advertising material. Running fully on-premise for cost control and data privacy, it replaced Azure Video Indexer and embeds six generative-AI products, including automated self-publishing and prompt-based thumbnail generation.<br/><br/>Stack: Python, VLMs, LLMs, Computer Vision, on-premise GPU inference, React.</p>",
 
@@ -428,6 +431,11 @@
         <div class="project" onclick="openModal('details-aiagents')">
           <img src="images/portfolio/ai-agents.png" alt="AI Agents" />
           <p>AI Agents: Instructor &amp; Reference Implementations</p>
+        </div>
+
+        <div class="project" onclick="openModal('details-sofia')">
+          <img src="images/portfolio/sofia.png" alt="SOFIA Chat" />
+          <p>SOFIA: Internal RAG Assistant</p>
         </div>
 
         <div class="project" onclick="openModal('details-nestle')">
